@@ -61,14 +61,14 @@ Citizen.CreateThread(function()
 			if playerComponentHash ~= nil then
 				RemoveWeaponComponentFromPed(PlayerPED, playerWeapon, playerComponentHash)
 				if Config.showWeaponOrComponentName then
-					DisplayNotification(Config.ComponentRestrictedMessage .. " -> " .. playerComponentName)
+					DisplayNotification(Config.ComponentRestrictedMessage .. " (" .. playerComponentName .. ")")
 				else
 					DisplayNotification(Config.ComponentRestrictedMessage)
 				end
 			else
 				RemoveWeaponFromPed(PlayerPED, playerWeapon)
 				if Config.showWeaponOrComponentName then
-					DisplayNotification(Config.WeaponRestrictedMessage .. " -> " .. playerWeaponName)
+					DisplayNotification(Config.WeaponRestrictedMessage .. " (" .. playerWeaponName .. ")")
 				else
 					DisplayNotification(Config.WeaponRestrictedMessage)
 				end

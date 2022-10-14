@@ -6,7 +6,7 @@ Config = {
 	usingTnotify = false,
 	-- How often the script checks for restricted weapons (in milliseconds)
 	updateTime = 2000,
-	-- Whether or not the script shows the name of the model being restricted
+	-- Whether or not the script shows the name of the model being restricted. If true, it will append the weapon/component name to the end of the message.
 	showWeaponOrComponentName = true
 }
 

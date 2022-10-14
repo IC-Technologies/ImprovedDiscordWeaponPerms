@@ -7,7 +7,7 @@ fx_version 'cerulean'
 games { 'gta5' }
 
 author 'IC-Technologies --> Original script by JaredScar on GitHub'
-description 'ImprovedDiscordPEDPerms by IC-Technologies on Github'
+description 'ImprovedDiscordWeaponPerms by IC-Technologies on Github'
 version '1.0.0'
 
 client_scripts { 

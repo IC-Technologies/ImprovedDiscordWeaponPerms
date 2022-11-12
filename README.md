@@ -1,7 +1,7 @@
 # ImprovedDiscordPEDPerms
 
 ## What is it?
-ImprovedDiscordWeaponPerms is a Discord based weapon restriction script. It is a fork of [JaredScar's original DiscordWeaponPerms](https://github.com/JaredScar/DiscordWeaponPerms) - I have added inheritances for roles and also added t-notify integration, as well as more config options and seperate messages for components and weapons with model names.
+ImprovedDiscordWeaponPerms is a Discord based weapon restriction script. It is a fork of [JaredScar's original DiscordWeaponPerms](https://github.com/JaredScar/DiscordWeaponPerms) - I have rewritten it and added inheritances for roles and also added t-notify integration, as well as more config options and seperate messages for components and weapons with model names.
 
 ## Requirement
 https://forum.cfx.re/t/release-badger-discord-api/1698464

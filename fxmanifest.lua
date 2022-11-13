@@ -8,7 +8,7 @@ game 'gta5'
 
 author 'IC-Technologies --> Original script by JaredScar on GitHub'
 description 'ImprovedDiscordWeaponPerms by IC-Technologies on Github'
-version '1.0.0'
+version '1.0.2'
 
 shared_script {
   "config.lua"
@@ -19,5 +19,6 @@ client_scripts {
 }
 
 server_scripts {
-  "server.lua"
+  "server.lua",
+  "version-check.lua"
 }

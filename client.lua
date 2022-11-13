@@ -26,8 +26,8 @@ Citizen.CreateThread(function()
 		for role, val in pairs(myRoles) do
 			if (val == true) then
 				local weapons = Config.WeaponRestrictions[role];
-				if (weapons ~= nil) then
-					for i = 1, #weapons do
+				for i = 1, #weapons do
+					if (weapons[i] ~= nil) then
 						if (playerWeapon == GetHashKey(tostring(weapons[i]))) then
 							requiredPerm = true;
 							hasPerm = true;
@@ -66,11 +66,13 @@ Citizen.CreateThread(function()
 					DisplayNotification(Config.ComponentRestrictedMessage)
 				end
 			else
-				RemoveWeaponFromPed(PlayerPED, playerWeapon)
-				if Config.showWeaponOrComponentName then
-					DisplayNotification(Config.WeaponRestrictedMessage .. " (" .. playerWeaponName .. ")")
-				else
-					DisplayNotification(Config.WeaponRestrictedMessage)
+				if (playerWeapon ~= nil) and (playerWeapon ~= 0) then
+					RemoveWeaponFromPed(PlayerPED, playerWeapon)
+					if Config.showWeaponOrComponentName then
+						DisplayNotification(Config.WeaponRestrictedMessage .. " (" .. playerWeaponName .. ")")
+					else
+						DisplayNotification(Config.WeaponRestrictedMessage)
+					end
 				end
 			end
 		end

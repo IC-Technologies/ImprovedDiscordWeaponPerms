@@ -14,6 +14,6 @@ PerformHttpRequest("https://raw.githubusercontent.com/IC-Technologies/ImprovedDi
 			print('ImprovedDiscordWeaponPerms is up to date!')
 		end
 	else 
-		print('There was an error in the checks for the latest version, if the issue persists contact IC_Technologies on GitHub.')
+		print('There was an error in the checks for the latest version, if the issue persists open an issue @ https://github.com/IC-Technologies/ImprovedDiscordWeaponPerms/issues.')
 	end 
 end)

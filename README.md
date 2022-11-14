@@ -61,4 +61,4 @@ Config.Inheritances = {
 }
 ```
 ## Download
-https://github.com/IC-Technologies/ImprovedDiscordWeaponPerms
+https://github.com/IC-Technologies/ImprovedDiscordWeaponPerms/releases

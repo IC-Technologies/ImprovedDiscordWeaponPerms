@@ -2,7 +2,7 @@ function GetCurrentVersion()
 	return GetResourceMetadata(GetCurrentResourceName(), "version")
 end 
 
-PerformHttpRequest("https://raw.githubusercontent.com/IC-Technologies/ImprovedDiscordWeaponPerms/main/version.txt", function(error, updatedVersion, headers)
+PerformHttpRequest("https://raw.githubusercontent.com/IC-Technologies/ImprovedDiscordWeaponPerms/master/version.txt", function(error, updatedVersion, headers)
 	Citizen.Wait(2500)
 	local currentVersion = GetCurrentVersion()
 	if (updatedVersion ~= nil) and (currentVersion ~= nil) then 

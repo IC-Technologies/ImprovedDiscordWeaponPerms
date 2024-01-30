@@ -4,7 +4,7 @@
 -------------------------------
 
 restrictedWeapons = Config.WeaponRestrictions;
-myRoles = nil;
+local myRoles
 
 RegisterNetEvent('ImprovedDiscordWeaponPerms:CheckPerms:Return')
 AddEventHandler('ImprovedDiscordWeaponPerms:CheckPerms:Return', function(roles)
@@ -23,17 +23,20 @@ Citizen.CreateThread(function()
 		local requiredPerm = nil;
 		hasPerm = false;
 
-		for role, val in pairs(myRoles) do
-			if (val == true) then
-				local weapons = Config.WeaponRestrictions[role];
-				for i = 1, #weapons do
-					if (weapons[i] ~= nil) then
-						if (playerWeapon == GetHashKey(tostring(weapons[i]))) then
-							requiredPerm = true;
-							hasPerm = true;
-						elseif HasPedGotWeaponComponent(PlayerPED, playerWeapon, GetHashKey(tostring(weapons[i]))) then 
-							requiredPerm = true;
-							hasPerm = true;
+		--Check if player has discord roles before checking for perms.
+		if myRoles then
+			for role, val in pairs(myRoles) do
+				if (val == true) then
+					local weapons = Config.WeaponRestrictions[role];
+					for i = 1, #weapons do
+						if (weapons[i] ~= nil) then
+							if (playerWeapon == GetHashKey(tostring(weapons[i]))) then
+								requiredPerm = true;
+								hasPerm = true;
+							elseif HasPedGotWeaponComponent(PlayerPED, playerWeapon, GetHashKey(tostring(weapons[i]))) then 
+								requiredPerm = true;
+								hasPerm = true;
+							end
 						end
 					end
 				end
@@ -54,24 +57,24 @@ Citizen.CreateThread(function()
 					end
 				end
 			end
-		end
 
-		-- If doesn't have permission, it's a restricted weapon/component to them
-		if not hasPerm and (requiredPerm ~= nil) then
-			if playerComponentHash ~= nil then
-				RemoveWeaponComponentFromPed(PlayerPED, playerWeapon, playerComponentHash)
-				if Config.showWeaponOrComponentName then
-					DisplayNotification(Config.ComponentRestrictedMessage .. " (" .. playerComponentName .. ")")
+			-- If doesn't have permission, it's a restricted weapon/component to them
+			if requiredPerm then
+				if playerComponentHash ~= nil then
+					RemoveWeaponComponentFromPed(PlayerPED, playerWeapon, playerComponentHash)
+
+					local message = Config.ComponentRestrictedMessage
+					message = message:gsub("{COMP_NAME}", string.upper(playerComponentName))
+					
+					DisplayNotification(message)
 				else
-					DisplayNotification(Config.ComponentRestrictedMessage)
-				end
-			else
-				if (playerWeapon ~= nil) and (playerWeapon ~= 0) then
-					RemoveWeaponFromPed(PlayerPED, playerWeapon)
-					if Config.showWeaponOrComponentName then
-						DisplayNotification(Config.WeaponRestrictedMessage .. " (" .. playerWeaponName .. ")")
-					else
-						DisplayNotification(Config.WeaponRestrictedMessage)
+					if (playerWeapon ~= nil) and (playerWeapon ~= 0) then
+						RemoveWeaponFromPed(PlayerPED, playerWeapon)
+
+						local message = Config.WeaponRestrictedMessage
+						message = message:gsub("{WEAPON_NAME}", string.upper(playerWeaponName))
+
+						DisplayNotification(message)
 					end
 				end
 			end

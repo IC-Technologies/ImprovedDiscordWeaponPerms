@@ -9,7 +9,7 @@ PerformHttpRequest("https://raw.githubusercontent.com/IC-Technologies/ImprovedDi
 		print("Current Version: " .. currentVersion)
 		print("Latest Version: " .. updatedVersion)
 		if (updatedVersion ~= currentVersion) then
-			print('ImprovedDiscordWeaponPerms is outdated, go to https://github.com/IC-Technologies/RP_Commands/releases to get the latest version.')
+			print('ImprovedDiscordWeaponPerms is outdated, go to https://github.com/IC-Technologies/ImprovedDiscordWeaponPerms/releases to get the latest version.')
 		else
 			print('ImprovedDiscordWeaponPerms is up to date!')
 		end

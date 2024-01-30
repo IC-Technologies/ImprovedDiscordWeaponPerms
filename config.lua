@@ -1,13 +1,13 @@
 Config = {
-	WeaponRestrictedMessage = "~r~This Weapon is restricted",
-	ComponentRestrictedMessage = "~r~This Component is restricted",
+	WeaponRestrictedMessage = "~r~This weapon is restricted.", --Placeholder: {WEAPON_NAME}
+	ComponentRestrictedMessage = "~r~This component is restricted.", --Placeholder: {COMP_NAME}
 	InheritanceEnabled = true,
 	-- Set to true if you use the t-notify plugin for notifications.
 	usingTnotify = false,
-	-- How often the script checks for restricted weapons (in milliseconds)
+	-- How often the script checks for restricted weapons. (in milliseconds) Note: Lower numbers could result in increased lag for your players.
 	updateTime = 2000,
-	-- Whether or not the script shows the name of the model being restricted. If true, it will append the weapon/component name to the end of the message.
-	showWeaponOrComponentName = true
+	--Will print debug messages in the server console.
+	debugMode = false, 
 }
 
 --[[
